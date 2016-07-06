@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <ol>
+        {% for link in links %}
+        <li><a href="{{ link }}">{{ link }}</a></li>
+        {% endfor %}
+    </ol>
+    {# <ol>#}
+        {# {% for band in band_names %}#}
+        {# <li>{{ band }}</li>#}
+        {# {% endfor %}#}
+    {# </ol>#}
+{% endblock %}
