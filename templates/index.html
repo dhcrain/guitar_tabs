@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block body %}
+    <form class="" action="" method="">
+        <input type="text" name="song_name" value="" placeholder='Song Name'>
+        <input type="submit" value="Search">
+    </form>
     <ol>
         {% for link in links %}
         <li><a href="{{ link }}">{{ link }}</a></li>
