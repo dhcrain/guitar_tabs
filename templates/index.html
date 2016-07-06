@@ -5,16 +5,24 @@
         <input type="text" name="song_name" value="" placeholder='Song Name'>
         <input type="submit" value="Search">
     </form>
-    <ol>
-        {% for link in links %}
-        <li><a href="{{ link }}">{{ link }}</a></li>
-        {% endfor %}
-    </ol>
-    <ol>
-        {% autoescape off %}
-            {% for band in band_names %}
+    <div class="row">
+        <div class="col s4">
+            <ol>
+                {% autoescape off %}
+                {% for band in band_names %}
                 <li>{{ band }}</li>
-            {% endfor %}
-        {% endautoescape %}
-    </ol>
+                {% endfor %}
+                {% endautoescape %}
+            </ol>
+        </div>
+        <div class="col s8">
+            <ul>
+                {% for link in links %}
+                <li><a href="{{ link }}">{{ link }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
 {% endblock %}

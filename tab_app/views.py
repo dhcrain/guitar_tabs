@@ -13,6 +13,7 @@ def tab_search_view(request):
         content = requests.get(url).text
         souper = BeautifulSoup(content, 'html.parser')
         song_links = souper.find_all("a", class_="ryzh22")
+        # song_links = souper.find(class_="tabslist fs-12")
         band_name = souper.find_all(width="35%")
         for link in song_links:
             links.append(link.attrs['href'])
