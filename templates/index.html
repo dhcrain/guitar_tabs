@@ -10,9 +10,11 @@
         <li><a href="{{ link }}">{{ link }}</a></li>
         {% endfor %}
     </ol>
-    {# <ol>#}
-        {# {% for band in band_names %}#}
-        {# <li>{{ band }}</li>#}
-        {# {% endfor %}#}
-    {# </ol>#}
+    <ol>
+        {% autoescape off %}
+            {% for band in band_names %}
+                <li>{{ band }}</li>
+            {% endfor %}
+        {% endautoescape %}
+    </ol>
 {% endblock %}
