@@ -2,6 +2,12 @@
 
 {% block body %}
     {% autoescape off %}
-        {{ tabs }}
+        <h2>{{ tabs }}TABS</h2>
+        <p>{{ songs }}SONGS</p>
+        <ol>
+            {% for song in songs %}
+            <li>{{ song }}</li>
+            {% endfor %}
+        </ol>
     {% endautoescape %}
 {% endblock %}
