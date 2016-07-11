@@ -2,12 +2,14 @@
 
 {% block body %}
     {% autoescape off %}
-        <h2>{{ tabs }}TABS</h2>
-        <p>{{ songs }}SONGS</p>
+        {{ tabs }}
+        {% if songs %}
+        <h1>Song List</h1>
         <ol>
             {% for song in songs %}
             <li>{{ song }}</li>
             {% endfor %}
         </ol>
+        {% endif %}
     {% endautoescape %}
 {% endblock %}

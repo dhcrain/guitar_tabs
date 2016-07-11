@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def tab_search_view(request):
     page_count = 10
-    song_name = request.GET.get('song_name')
+    song_name = request.GET.get('song_name') or 'bohemian rhapsody'
     links = []
     band_names = []
     for page in range(1, page_count + 1):
@@ -18,8 +18,8 @@ def tab_search_view(request):
             links.append(str(link))
         for name in band_name:
             band_names.append(str(name))
-        print(links)
     context = {
+        'search': song_name.title(),
         'links': links,
         'band_names': band_names,
     }
@@ -29,15 +29,12 @@ def lyric_detail_view(request, url):
     song = requests.get("http://www.guitartabs.cc/" + url).text
     souper = BeautifulSoup(song, 'html.parser')
     tabs = str(souper.find(style="line-height:normal"))
-    # print(tabs)
-    bands = []
-    for band in bands:
-        print(band)
-        band.append((souper.find_all("a", class_="ryzh2")))
-    print(bands)
-    if tabs == 'None':
-        # band = str(souper.find_all(class_='tabslist')[1])
-        context = {'songs': bands}
-    else:
+    song_list = souper.find_all("a", class_="ryzh2")
+    songs = []
+    if tabs == 'None':  # display songs by band
+        for song in song_list:  # wierd work around to get Django and BeautifulSoup to play nice
+            songs.append(str(song))
+        context = {'songs': songs}
+    else:   # display tabs from a song
         context = {'tabs': tabs,}
     return render(request, 'detail.html', context)

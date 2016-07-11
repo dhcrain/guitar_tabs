@@ -9,6 +9,17 @@
         <link rel="stylesheet" href="{% static "tab_app/css/main.css" %}">
     </head>
     <body>
+        <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper red">
+                <div class="container">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="{% url 'tab_search_view' %}">Search Again</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        </div>
         <div class="container">
         {% block body %}
             body

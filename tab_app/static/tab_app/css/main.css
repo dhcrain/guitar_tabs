@@ -1,12 +1,11 @@
-body {
-    margin-top: 50px;
+form {
+    margin-top: 40px;
 }
-/*.inline {
-    display: flex;
-}*/
 .btn-large {
     border-radius: 90px;
 }
-/*input[type="text"] {
-    width: 65%;
-}*/
+a.ch {
+    pointer-events: none;
+    cursor: text !important;
+    color: black;
+}
